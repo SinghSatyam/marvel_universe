@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<%= render :partial => "error"%>
+		<div class="table-responsive">
+			<table class="width-100 table-striped table-hover table-responsive">
+				 <caption class="text-center"><small class="text-muted">Marvel Characters</small></caption>
+				<th>CharacterId</th>
+				<th>CharacterName</th>
+				<%@results.each do |result| %>
+				<tr>
+					<td><%= link_to result["id"], character_path(result["id"])%></td>
+					<td><img class="thumbnailimg" src="<%=find_thumbnail_url result["thumbnail"]%>"><%=result["name"]%></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+		<%= render :partial => "pagination" if @results.present? %>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<% if @results.present? %>
+    <div class="card">
+      <img src='<%= find_thumbnail_url @results[0]["thumbnail"]%>' alt="<%=@results[0]["name"]%>" style="width:100%">
+      <h1><%=@results[0]["name"]%></h1>
+      <p class="title"><%=@results[0]["description"]%></p>
+      <p><button onclick="window.history.back();">Back</button></p>
+    </div>
+<%else %>
+    <%= render :partial => "error"%>
+<% end %>
